@@ -1,28 +1,25 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsOps'; // Замість прямого імпорту з contactsSlice
-import styles from './ContactForm.module.css';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contactsOps";
+import styles from "./ContactForm.module.css";
 
 const ContactsForm = () => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Створення нового контакту без id, оскільки його надає сервер
     const newContact = {
       name,
       number,
     };
 
-    // Додаємо контакт через асинхронний екшен
     dispatch(addContact(newContact));
 
-    // Очищаємо поля після додавання
-    setName('');
-    setNumber('');
+    setName("");
+    setNumber("");
   };
 
   return (

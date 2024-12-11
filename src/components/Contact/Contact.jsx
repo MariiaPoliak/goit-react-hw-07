@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsOps'; // Імпортуємо асинхронний екшн
-import styles from './Contact.module.css';
+import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsOps";
+import styles from "./Contact.module.css";
 
 function Contact({ contact }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteContact(contact.id)); // Викликаємо deleteContact з id контакту
+    dispatch(deleteContact(contact.id));
   };
 
   return (
@@ -29,5 +29,3 @@ Contact.propTypes = {
 };
 
 export default Contact;
-
-
