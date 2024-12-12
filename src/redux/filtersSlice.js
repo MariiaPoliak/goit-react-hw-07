@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// Початковий стан для фільтра
+// Початковий стан для фільтра(дефолтні контакти)
 const initialState = {
   name: '',
 };

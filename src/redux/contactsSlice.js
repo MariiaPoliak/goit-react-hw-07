@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts, addContact, deleteContact } from './contactsOps'; // Завжди імпортуємо асинхронні операції
-import { createSelector } from 'reselect'; // Для мемоізації селектора
+import { fetchContacts, addContact, deleteContact } from './contactsOps'; 
+import { createSelector } from 'reselect'; 
 
 const initialState = {
   items: [],
   loading: false,
   error: null,
   filters: {
-    name: "", // Фільтр для імені
+    name: "", 
   },
 };
 
@@ -21,7 +21,7 @@ const contactsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Операція отримання контактів
+      // отримання контактів
       .addCase(fetchContacts.pending, (state) => {
         state.loading = true;
       })
@@ -33,7 +33,7 @@ const contactsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      // Операція додавання контакту
+      // додавання контакту
       .addCase(addContact.pending, (state) => {
         state.loading = true;
       })
@@ -45,7 +45,7 @@ const contactsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      // Операція видалення контакту
+      //видалення контакту
       .addCase(deleteContact.pending, (state) => {
         state.loading = true;
       })
@@ -60,7 +60,6 @@ const contactsSlice = createSlice({
   },
 });
 
-// Мемоїзований селектор для фільтрації контактів
 export const selectFilteredContacts = createSelector(
   (state) => state.contacts.items,
   (state) => state.contacts.filters.name,
