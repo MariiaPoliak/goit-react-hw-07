@@ -1,13 +1,12 @@
 import { useDispatch } from "react-redux";
-
-import { setNameFilter } from "../../redux/filtersSlice";
+import { setFilter } from "../../redux/contactsSlice";
 import styles from "./SearchBox.module.css";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    dispatch(setNameFilter(e.target.value)); // Змінюємо фільтр
+    dispatch(setFilter(e.target.value));
   };
 
   return (
